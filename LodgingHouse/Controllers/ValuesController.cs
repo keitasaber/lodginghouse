@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Model.Models;
+using Service;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -10,6 +12,13 @@ namespace LodgingHouse.Controllers
     [Authorize]
     public class ValuesController : ApiController
     {
+        private IUserService _userService;
+        public ValuesController(IUserService userService)
+        {
+            _userService = userService;
+        }
+
+        [Authorize(Roles = "LESSEE")]
         // GET api/values
         public IEnumerable<string> Get()
         {

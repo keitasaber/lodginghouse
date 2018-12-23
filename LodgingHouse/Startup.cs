@@ -12,6 +12,7 @@ namespace LodgingHouse
     {
         public void Configuration(IAppBuilder app)
         {
+            ConfigureDependency(app);
             ConfigureAuth(app);
         }
     }

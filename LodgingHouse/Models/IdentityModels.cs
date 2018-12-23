@@ -21,7 +21,7 @@ namespace LodgingHouse.Models
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext()
-            : base("DefaultConnection", throwIfV1Schema: false)
+            : base("LodgingHouse", throwIfV1Schema: false)
         {
         }
         
