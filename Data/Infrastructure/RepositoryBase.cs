@@ -61,7 +61,7 @@ namespace Data.Infrastructure
                 dbSet.Remove(obj);
         }
 
-        public virtual T GetSingleById(int id)
+        public virtual T GetSingleById(string id)
         {
             return dbSet.Find(id);
         }

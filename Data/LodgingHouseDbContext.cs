@@ -24,6 +24,7 @@ namespace Data
         public DbSet<PersonPerRoom> PersonPerRooms { get; set; }
         public DbSet<RoomRate> RoomRates { get; set; }
         public DbSet<User> Users { get; set; }
+        public DbSet<RentLessee> RentLessees { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

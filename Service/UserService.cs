@@ -14,6 +14,10 @@ namespace Service
     {
         User Add(User user);
 
+        User GetById(string id);
+
+        void Update(User entity);
+
         void Save();
     }
     public class UserService : IUserService
@@ -32,9 +36,19 @@ namespace Service
             return _userRepository.Add(user);
         }
 
+        public void Update(User entity)
+        {
+            _userRepository.Update(entity);
+        }
+
         public void Save()
         {
             _unitOfWork.Commit();
+        }
+
+        public User GetById(string id)
+        {
+            return _userRepository.GetSingleById(id);
         }
     }
 }

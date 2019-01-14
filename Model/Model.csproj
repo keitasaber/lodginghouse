@@ -48,6 +48,7 @@
     <Compile Include="Models\AspNetUserClaim.cs" />
     <Compile Include="Models\AspNetUserLogin.cs" />
     <Compile Include="Models\Lessee.cs" />
+    <Compile Include="Models\RentLessee.cs" />
     <Compile Include="Models\Lessor.cs" />
     <Compile Include="Models\PersonPerRoom.cs" />
     <Compile Include="Models\RoomRate.cs" />

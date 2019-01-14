@@ -9,14 +9,12 @@ using System.Threading.Tasks;
 
 namespace Model.Models
 {
-    public class PersonPerRoom : SameAttribute
+    public class RentLessee : SameAttribute
     {
         [Key, Column(Order = 1)]
         public string LessorId { get; set; }
-        [Key, Column(Order = 2)]
-        public string RoomId { get; set; }
-        [Key, Column(Order = 3)]
-        public string LesseeId { get; set; }
 
+        [Key, Column(Order = 2)]
+        public string LesseeId { get; set; }
     }
 }

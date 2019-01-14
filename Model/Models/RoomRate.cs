@@ -17,25 +17,20 @@ namespace Model.Models
         [Key, Column(Order = 2)]
         public string RoomId { get; set; }
 
-        [Required]
+        public string RoomName { get; set; }
+
         public string MonthlyRate { get; set; }
 
-        [Required]
         public float AirConditioner { get; set; }
 
-        [Required]
         public float ElectricityFee { get; set; }
 
-        [Required]
         public float WaterFee { get; set; }
 
-        [Required]
-        public DateTime From { get; set; }
+        public DateTime? From { get; set; }
         
-        [Required]
-        public DateTime To { get; set; }
+        public DateTime? To { get; set; }
 
-        [Required]
         public bool IsPayed { get; set; }
 
     }

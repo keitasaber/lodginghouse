@@ -41,7 +41,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AspNetUserService.cs" />
+    <Compile Include="LesseeService.cs" />
+    <Compile Include="LessorService.cs" />
+    <Compile Include="PersonPerRoomService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RentLesseeService.cs" />
+    <Compile Include="RoleService.cs" />
+    <Compile Include="RoomRateService.cs" />
     <Compile Include="UserService.cs" />
   </ItemGroup>
   <ItemGroup>

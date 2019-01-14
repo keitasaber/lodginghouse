@@ -68,8 +68,43 @@
     <Compile Include="Migrations\201812220756397_UpdateDb.Designer.cs">
       <DependentUpon>201812220756397_UpdateDb.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201812260910399_UpdateLessorTable.cs" />
+    <Compile Include="Migrations\201812260910399_UpdateLessorTable.Designer.cs">
+      <DependentUpon>201812260910399_UpdateLessorTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201812291405242_UpdateUserTable.cs" />
+    <Compile Include="Migrations\201812291405242_UpdateUserTable.Designer.cs">
+      <DependentUpon>201812291405242_UpdateUserTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201901010824000_UpdateRoomRate.cs" />
+    <Compile Include="Migrations\201901010824000_UpdateRoomRate.Designer.cs">
+      <DependentUpon>201901010824000_UpdateRoomRate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201901010955574_UpdateAddRoomName.cs" />
+    <Compile Include="Migrations\201901010955574_UpdateAddRoomName.Designer.cs">
+      <DependentUpon>201901010955574_UpdateAddRoomName.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201901011305361_UpdateDatabase.cs" />
+    <Compile Include="Migrations\201901011305361_UpdateDatabase.Designer.cs">
+      <DependentUpon>201901011305361_UpdateDatabase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201901071348234_Add_RentLessee.cs" />
+    <Compile Include="Migrations\201901071348234_Add_RentLessee.Designer.cs">
+      <DependentUpon>201901071348234_Add_RentLessee.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201901081124549_Update_PersonPerRoom.cs" />
+    <Compile Include="Migrations\201901081124549_Update_PersonPerRoom.Designer.cs">
+      <DependentUpon>201901081124549_Update_PersonPerRoom.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\AspNetUserRepository.cs" />
+    <Compile Include="Repositories\LesseeRepository.cs" />
+    <Compile Include="Repositories\LessorRepository.cs" />
+    <Compile Include="Repositories\PersonPerRoomRepository.cs" />
+    <Compile Include="Repositories\RentLesseeRepository.cs" />
+    <Compile Include="Repositories\RoleRepository.cs" />
+    <Compile Include="Repositories\RoomRateRepository.cs" />
     <Compile Include="Repositories\UserRepository.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -85,6 +120,27 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201812220756397_UpdateDb.resx">
       <DependentUpon>201812220756397_UpdateDb.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812260910399_UpdateLessorTable.resx">
+      <DependentUpon>201812260910399_UpdateLessorTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812291405242_UpdateUserTable.resx">
+      <DependentUpon>201812291405242_UpdateUserTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901010824000_UpdateRoomRate.resx">
+      <DependentUpon>201901010824000_UpdateRoomRate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901010955574_UpdateAddRoomName.resx">
+      <DependentUpon>201901010955574_UpdateAddRoomName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901011305361_UpdateDatabase.resx">
+      <DependentUpon>201901011305361_UpdateDatabase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901071348234_Add_RentLessee.resx">
+      <DependentUpon>201901071348234_Add_RentLessee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901081124549_Update_PersonPerRoom.resx">
+      <DependentUpon>201901081124549_Update_PersonPerRoom.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />

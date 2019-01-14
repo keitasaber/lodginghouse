@@ -18,7 +18,7 @@ namespace LodgingHouse.Controllers
             _userService = userService;
         }
 
-        [Authorize(Roles = "LESSEE")]
+        [Authorize(Roles = "lessee")]
         // GET api/values
         public IEnumerable<string> Get()
         {

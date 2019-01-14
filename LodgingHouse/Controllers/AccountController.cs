@@ -16,6 +16,8 @@ using Microsoft.Owin.Security.OAuth;
 using LodgingHouse.Models;
 using LodgingHouse.Providers;
 using LodgingHouse.Results;
+using Service;
+using Model.Models;
 
 namespace LodgingHouse.Controllers
 {
@@ -25,14 +27,31 @@ namespace LodgingHouse.Controllers
     {
         private const string LocalLoginProvider = "Local";
         private ApplicationUserManager _userManager;
-
-        public AccountController()
+        private IAspNetUserService _aspNetUserService;
+        private IRoleService _roleService;
+        private IUserService _userService;
+        private ILessorService _lessorService;
+        private ILesseeService _lesseeService;
+        public AccountController(IAspNetUserService aspNetUserService, IRoleService roleService, IUserService userService,
+            ILessorService lessorService, ILesseeService lesseeService)
         {
+            _aspNetUserService = aspNetUserService;
+            _roleService = roleService;
+            _userService = userService;
+            _lessorService = lessorService;
+            _lesseeService = lesseeService;
         }
 
         public AccountController(ApplicationUserManager userManager,
-            ISecureDataFormat<AuthenticationTicket> accessTokenFormat)
+            ISecureDataFormat<AuthenticationTicket> accessTokenFormat, 
+            IAspNetUserService aspNetUserService, IRoleService roleService, IUserService userService,
+            ILessorService lessorService, ILesseeService lesseeService)
         {
+            _aspNetUserService = aspNetUserService;
+            _roleService = roleService;
+            _userService = userService;
+            _lessorService = lessorService;
+            _lesseeService = lesseeService;
             UserManager = userManager;
             AccessTokenFormat = accessTokenFormat;
         }
@@ -335,6 +354,56 @@ namespace LodgingHouse.Controllers
             if (!result.Succeeded)
             {
                 return GetErrorResult(result);
+            }
+
+            var roleId = model.Role;
+            var role = _roleService.GetSingleById(roleId);
+            if (role != null)
+            {
+                var userId = user.Id;
+                var aspNetUser = _aspNetUserService.GetSingleById(userId);
+                aspNetUser.AspNetRoles.Add(role);
+                _aspNetUserService.Update(aspNetUser);
+                _aspNetUserService.Save();
+
+                User newUser = new User()
+                {
+                    Id = userId,
+                    PhoneNumber = 0,
+                    Status = true,
+                    CreatedBy = userId,
+                    CreatedDate = DateTime.Now
+                };
+                _userService.Add(newUser);
+                _userService.Save();
+                if (role.Id == "LESSEE")
+                {
+                    Lessee lessee = new Lessee()
+                    {
+                        Id = userId,
+                        Status = true,
+                        CreatedBy = userId,
+                        CreatedDate = DateTime.Now
+                    };
+                    _lesseeService.Add(lessee);
+                    _lesseeService.Save();
+                }
+                else if (role.Id == "LESSOR")
+                {
+                    Lessor lessor = new Lessor()
+                    {
+                        Id = userId,
+                        Status = true,
+                        CreatedBy = userId,
+                        CreatedDate = DateTime.Now
+                    };
+                    _lessorService.Add(lessor);
+                    _lessorService.Save();
+                }
+            }
+            else
+            {
+                return Json(new { success = false });
             }
 
             return Ok();

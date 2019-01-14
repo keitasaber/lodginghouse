@@ -14,8 +14,16 @@ namespace Model.Models
         [Key]
         public string Id { get; set; }
 
+        public string LodgingHouseName { get; set; }
+
         [Column(TypeName = "ntext")]
         public string Description { get; set; }
+
+        [Column(TypeName = "ntext")]
+        public string Address { get; set; }
+
+        [Column(TypeName = "ntext")]
+        public string OverViewImage { get; set; }
 
         [Required]
         public int TotalRoom { get; set; }

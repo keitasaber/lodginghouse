@@ -19,6 +19,8 @@ namespace Model.Models
 
         public string Dob { get; set; }
 
+        public bool Gender { get; set; }
+
         [Column(TypeName = "ntext")]
         public string Avatar { get; set; }
 
